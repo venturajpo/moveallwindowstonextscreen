@@ -4,6 +4,7 @@ function isRelevant(client) {
 }
 
 function moveAllWindowsToScreen(screen) {
+    if (screen>workspace.screens.length-1) return;
     var allClients = workspace.windowList();   // was clientList in v5
     var relevantClients = allClients.filter(function(client) {
         return isRelevant(client);

@@ -29,7 +29,7 @@ any shortcuts, you can define your own key bindings. See Setup for details.
 
 If you need to update the script to a new version pull the repo again and run:
 
-	kpackagetool6 --type KWin/Script -r moveallwindowstoscreen6
+	kpackagetool6 --type KWin/Script -r moveallwindowstoscreen
 	kpackagetool6 --type KWin/Script -i .
 
 ## Setup
