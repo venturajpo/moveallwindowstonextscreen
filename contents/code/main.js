@@ -4,14 +4,14 @@ function isRelevant(client) {
 }
 
 function moveAllWindowsToScreen(screen) {
-    var allClients = workspace.clientList();
+    var allClients = workspace.windowList();   // was clientList in v5
     var relevantClients = allClients.filter(function(client) {
         return isRelevant(client);
     });
 
     for (var i = 0; i < relevantClients.length; ++i) {
         var client = relevantClients[i];
-        workspace.sendClientToScreen(client, screen);
+        workspace.sendClientToScreen(client, workspace.screens[screen]);   // was just screen number in v5
     }
 }
 
