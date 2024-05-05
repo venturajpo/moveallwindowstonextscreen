@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Move All Windows to Screen
+Name=Move All Windows to Next Screen
 
-Comment=Adds shortcuts to move all windows to a specific screen
+Comment=Adds shortcut to move all windows to next screen
 
 Icon=preferences-system-windows-script-test
 
@@ -9,11 +9,11 @@ Type=Service
 
 X-Plasma-API=javascript
 X-Plasma-MainScript=code/main.js
-X-KDE-PluginInfo-Author=Richard Lewis
-X-KDE-PluginInfo-Email=richrd.lewis@gmail.com
-X-KDE-PluginInfo-Name=moveallwindowstoscreen
+X-KDE-PluginInfo-Author=João Ventura
+X-KDE-PluginInfo-Email=venturajpo@gmail.com
+X-KDE-PluginInfo-Name=moveallwindowstonextscreen
 X-KDE-PluginInfo-Version=1.0
 
 X-KDE-PluginInfo-License=GPL
 X-KDE-ServiceTypes=KWin/Script
-X-KDE-PluginKeyword=moveallwindowstoscreen
+X-KDE-PluginKeyword=moveallwindowstonextscreen

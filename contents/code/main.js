@@ -1,26 +1,41 @@
-
 function isRelevant(client) {
     return !client.specialWindow;
 }
 
-function moveAllWindowsToScreen(screen) {
-    if (screen>workspace.screens.length-1) return;
-    var allClients = workspace.windowList();   // was clientList in v5
-    var relevantClients = allClients.filter(function(client) {
+function findScreenIndex(scr) {
+    print("scr" ,scr.name);
+    for (var index = 0; index < workspace.screens.length; ++index) {
+        print("index" ,index);
+        print("workspace.screens[index] == scr" ,workspace.screens[index] == scr);
+        if(workspace.screens[index] == scr) {
+            return index;
+        }
+    }
+    return 0;
+}
+
+function moveAllWindowsToNextScreen() {
+    var allScreenClients = workspace.windowList();
+    var screenClients = allScreenClients.filter(function(client) {
         return isRelevant(client);
     });
-
-    for (var i = 0; i < relevantClients.length; ++i) {
-        var client = relevantClients[i];
-        workspace.sendClientToScreen(client, workspace.screens[screen]);   // was just screen number in v5
+    print(screenClients);
+    var lastScreenIndex = workspace.screens.length-1;
+    print(lastScreenIndex);
+    for (var i = 0; i < screenClients.length; ++i) {
+        var clientPos = screenClients[i].pos;
+        print("i", i, "client", screenClients[i].caption, "clientPos" ,clientPos);
+        var currScreen = workspace.screenAt(clientPos);
+        print("i", i, );
+        var screenIndex = findScreenIndex(currScreen);
+        print("i", i, "screenIndex" ,screenIndex, "currScreen" ,currScreen.name);
+        screenIndex++;
+        if(screenIndex > lastScreenIndex)
+            screenIndex = 0;
+        print("i", i, "screenIndex" ,screenIndex);
+        workspace.sendClientToScreen(screenClients[i], workspace.screens[screenIndex]);
     }
 }
 
-function moveAllTo0() {moveAllWindowsToScreen(0)}
-function moveAllTo1() {moveAllWindowsToScreen(1)}
-function moveAllTo2() {moveAllWindowsToScreen(2)}
-function moveAllTo3() {moveAllWindowsToScreen(3)}
-registerShortcut("Move All Windows To Screen 0", "Move All Windows To Screen 0", "", moveAllTo0);
-registerShortcut("Move All Windows To Screen 1", "Move All Windows To Screen 1", "", moveAllTo1);
-registerShortcut("Move All Windows To Screen 2", "Move All Windows To Screen 2", "", moveAllTo2);
-registerShortcut("Move All Windows To Screen 3", "Move All Windows To Screen 3", "", moveAllTo3);
+registerShortcut("Move All Windows To Next Screen", "Move All Windows To Next Screen", "", moveAllWindowsToNextScreen);
+

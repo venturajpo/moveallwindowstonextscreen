@@ -1,39 +1,27 @@
-# Move All Windows to Screen
+# Move All Windows to Next Screen
 
-This KWin script provides user definable shortcuts that let you move all your
-windows to a specific screen. If you want to quickly move all windows from one
-screen to another this is for you.
+This KWin script provides user definable shortcut that let you move each window to the next screen they were. If you want to quickly move all windows from one screen to another this is for you.
 
-Updated by Al Williams for KDE6
+Adapted from wd5gnr Qt6 update from richrd's "moveallwindowstoscreen"
 
 ## Motive
 
-I like to work with two screens, the laptop screen and my external monitor(s).
-When I disconnect my monitor all windows are automatically moved to the laptop
-screen which is nice, but when I reconnect the monitor all windows remain on
-the laptop screen. This is inconvenient as I mostly want my windows on the
-external screen when I have it connected. This KWin script solves that issue by
-providing shortcuts for moving all windows to a specific screen.
+I like to work with two screens, I created this script to I could swap the content of each screen to another one. I've only tested with 2 screens with the same resolution, but this should work as a "circle through screens".
 
 
 ## Installation
 
-First clone this repo and run the following command in the root directory of the
-repo (note that KWin has two capital letters and, yes, it matters).
+First clone this repo and run the following command in the root directory of the repo (note that KWin has two capital letters and, yes, it matters).
 
 	kpackagetool6 --type KWin/Script -i .
 
-After that open KWin Scripts (System Settings -> Window Management ->
-KWin Scripts) and enable "Move All Windows to Screen". This won't yet enable
-any shortcuts, you can define your own key bindings. See Setup for details.
+After that open KWin Scripts (System Settings → Window Management → KWin Scripts) and enable "Move All Windows to Next Screen". This won't yet enable any shortcuts, you can define your own key bindings. See Setup for details.
 
 If you need to update the script to a new version pull the repo again and run:
 
-	kpackagetool6 --type KWin/Script -r moveallwindowstoscreen
+	kpackagetool6 --type KWin/Script -r moveallwindowstonextscreen
 	kpackagetool6 --type KWin/Script -i .
 
 ## Setup
 
-Open System Settings and go to Shortcuts -> Global Shortcuts -> Kwin. You
-should see new shortcuts available there (for moving windows to screen 0, 1, 2
-and 3). Just add shortcuts for the ones you need and that's it.
+Open System Settings and go to Shortcuts → Global Shortcuts → Kwin. You should see the new shortcut available there. Just add the shortcut for this script and that's it.
